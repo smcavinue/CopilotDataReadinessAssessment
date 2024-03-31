@@ -22,9 +22,9 @@ else {
     Try {
         write-host "Validating CSV file..."
         $SiteList = Import-Csv $csvPath
-        $SiteList | add-member -MemberType NoteProperty -Name "ID" -Value $_.SiteURL
+        $SiteList | add-member -MemberType NoteProperty -Name "ID" -Value $null
         foreach ($site in $SiteList) {
-
+            write-host $site
             $Split = $site.WebURL.Split("/")
             if (!$Split[4]) {
                 $JoinedSiteID = "$($Split[2])"
