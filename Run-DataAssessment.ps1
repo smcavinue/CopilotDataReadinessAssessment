@@ -14,7 +14,7 @@ param(
 )
 # Connect to Microsoft Graph
 Connect-MgGraph -NoWelcome -ClientId $ClientID -CertificateThumbprint $Thumbprint -TenantId $TenantID
-$OutputFileName = "C:\DataAssessment\DataAssessment-$(get-date -Format HHmm-ddMMyy).csv"
+$OutputFileName = "C:\DataAssessment\DataAssessment.csv"
 if (!$csvPath) {
     $SiteList = (Get-MgSite -All | ? { $_.weburl -notlike "*-my.sharepoint.com*" } |  select id, WebURL)
 }
